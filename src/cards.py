@@ -19,8 +19,13 @@ def addCard(leftSide, rightSide, topic):
     with open("cards.json", "w") as file:
         json.dump(data, file, indent=4)
 
+def getAllCards():
+    data = []
+    with open("cards.json", "r") as file:
+        try:
+            data = json.load(file)
+        except json.JSONDecodeError:
+            data = []
 
-
-addCard("OOP", "Object oriented programming", "Programming")
-
+    return data
 
